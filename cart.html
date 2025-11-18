@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA CLOTHING - Cart</title>
+    <link rel="stylesheet" href="main.css"> <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        /* Cart Page के लिए कुछ बुनियादी CSS (आप इसे main.css में भी डाल सकते हैं) */
+        .cart-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .item-details {
+            display: flex;
+            align-items: center;
+        }
+        .item-details img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 4px;
+        }
+        .item-name h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1em;
+        }
+        .item-name p {
+            margin: 0;
+            color: #555;
+        }
+        .item-price, .item-quantity {
+            font-weight: bold;
+        }
+        .remove-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            
+        }
+        .remove-btn:hover {
+            background-color: #e60000;
+            transform: translateY(-3px) scale(1.05);
+        }
+        .cart-summary {
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #333;
+        }
+        .cart-summary h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .place-order-btn {
+            background-color: #1E2939;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 4px;
+             transition: transform 0.25s ease;
+              box-shadow:   #1e2939e1 0px 2px 4px -1px;
+        }
+        .place-order-btn:hover {
+            background-color: #1e2939e8;
+            transform: translateY(-3px) scale(1.05);
+        }
+
+          #home-btn {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+            
+            box-shadow: 0 0 25px 3px rgba(0, 0, 0, 0.096);
+            text-decoration: none; /* Link style */
+            display: inline-block;
+            transition: transform 0.25s, background-color 0.3s, color 0.3s;
+        }
+        #home-btn:hover {
+            background-color: #000000;
+            color: #ffffff;
+            transform: translateY(-3px) scale(1.05);
+        }
+        @media (max-width: 600px) {
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .item-details {
+                margin-bottom: 10px;
+            }
+            .cart-summary {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="cart-container">
+        <h2>🛍️ Your Shopping Cart</h2>
+        <div id="cart-items-list">
+            <p id="empty-cart-message">Your cart is empty.</p>
+        </div>
+
+        <div class="cart-summary">
+            <h3>Total: ₹<span id="cart-total">0.00</span></h3>
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+             <a href="index.html"> <button id="home-btn" type="button">Home</button></a>
+             
+        </div>
+    </div>
+
+    <section id="contact">
+        </section>
+
+    <script src="script.js"></script>
+    <script>
+        // इस स्क्रिप्ट को सुनिश्चित करने के लिए कि cart.html पेज लोड होने पर कार्ट दिखाई दे
+        document.addEventListener('DOMContentLoaded', displayCart);
+    </script>
+</body>
+</html>

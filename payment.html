@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA CLOTHING - Payment</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .payment-container {
+            display: block;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .payment-container h2 {
+            color: #333;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .payment-details {
+            text-align: left;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .payment-details p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+.payment-options {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+
+            
+        }
+
+        .payment-options button {
+            background-color: #1E2939;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+            text-decoration: none; /* Link style */
+            display: inline-block;
+            transition: transform 0.25s, background-color 0.3s;
+        }
+        .payment-options button:hover {
+           background-color: #1e2939e8;
+           transform: translateY(-3px) scale(1.05);
+        }
+        .amount-due {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #d9534f;
+            margin-top: 15px;
+        }
+        #home-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+            text-decoration: none; /* Link style */
+            display: inline-block;
+            transition: transform 0.25s, background-color 0.3s;
+        }
+        #home-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px) scale(1.05);
+        }
+        @media (max-width: 600px) {
+            .payment-container {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- <nav>
+        <div class="nav1">
+            <img src="logo.png" alt="ALPHA CLOTHING Logo" class="logo">
+        </div>
+        <div class="nav2">
+            <a href="index.html">HOME</a>
+            <a href="index.html#products">PRODUCTS</a>
+            <a href="index.html#about">ABOUT US</a>
+            <a href="index.html#contact">CONTACT US</a>
+            <h4><i class="ri-user-line"></i></h4>
+            <h4><i class="ri-account-circle-line"></i></h4>
+            <h4 onclick="window.location.href='cart.html'" style="cursor: pointer;"><i class="ri-shopping-cart-2-fill"></i></h4>
+            <h5><i class="ri-menu-3-line"></i></h5>
+        </div>
+    </nav> -->
+    <div class="payment-container">
+        <h2>💳 Complete Your Purchase</h2>
+        
+        <div class="payment-details">
+            <p><strong>Order Summary:</strong> Items in cart</p>
+            <p><strong>Shipping Address:</strong> (Dummy Address - Not implemented)</p>
+            <div class="amount-due">Amount Due: ₹<span id="payment-amount">0.00</span></div>
+        </div>
+
+        <p>Choose Payment Method: (Payment form mock-up)</p>
+        <div class="payment-options">
+           <a href="orders.html"> <button onclick="processPayment()">Pay Now</button></a>
+           <a href="index.html"> <button id="home-btn" type="button">Home</button></a>
+        </div>
+    </div>
+
+    <section id="contact">
+        </section>
+
+    <script src="script.js"></script>
+    <script>
+        // पेमेंट अमाउंट डिस्प्ले करना
+        document.addEventListener('DOMContentLoaded', () => {
+            const total = localStorage.getItem('orderTotal') || '0.00';
+            document.getElementById('payment-amount').textContent = total;
+        });
+
+        function processPayment() {
+            // वास्तविक दुनिया में, यहाँ भुगतान प्रोसेसिंग लॉजिक होगा
+            // सफल होने पर, ऑर्डर कन्फर्मेशन पेज पर रीडायरेक्ट करें
+            window.location.href = 'order-confirmation.html';
+        }
+    </script>
+</body>
+</html>
