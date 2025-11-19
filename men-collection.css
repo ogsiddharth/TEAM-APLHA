@@ -38,83 +38,167 @@ body {
 
 
 
-/* nav css */
+
+/* 🚀 NAV BAR: Enhanced Styling */
+/* ======================================= */
+
 nav {
-    height: 80px;
+    height: 70px;
+    /* ऊँचाई थोड़ी कम की */
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 90px;
+    padding: 0 5%;
+    /* पैडिंग प्रतिशत में सेट की */
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* बेहतर शैडो इफेक्ट */
+    position: sticky;
+    /* Fixed के बजाय Sticky का इस्तेमाल ताकि स्क्रॉल करने पर ऊपर रहे */
+    top: 0;
+    z-index: 1000;
+    /* Z-Index बढ़ाया */
+
 }
 
+/* Logo Styling */
 .nav1 img {
-    height: 400px;
-    padding-top: 29px;
-
+    height: 250px;
+    /* Logo की ऊँचाई एडजस्ट की */
+    width: auto;
+    padding: 0;
+    /* अनावश्यक पैडिंग हटाई */
+    margin-top: 25px;
+    transition: transform 0.3s ease-in-out;
 }
 
+.nav1 img:hover {
+    transform: scale(1.05);
+    /* Logo पर हल्का होवर इफेक्ट */
+}
+
+/* Nav Links Container */
 .nav2 {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 35px;
+    /* लिंक्स के बीच की दूरी बढ़ाई */
 }
 
+/* Nav Anchor Links (HOME, PRODUCTS, etc.) */
 .nav2 a {
     text-decoration: none;
-    color: #636262;
-    font-weight: bold;
-    font-size: 14px;
-    transition: color 0.3s;
+    color: #333333;
+    /* गहरा, स्पष्ट रंग */
+    font-weight: 500;
+    /* Semi-bold */
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline Hover Effect for Links */
+.nav2 a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    left: 0;
+    background: #7b58a0ed;
+    /* आपके चुने हुए रंग का इस्तेमाल */
+    transition: width 0.3s ease;
 }
 
 .nav2 a:hover {
-    color: #000;
+    color: #7b58a0ed;
 }
 
+.nav2 a:hover::after {
+    width: 100%;
+    /* होवर पर पूरी अंडरलाइन */
+}
+
+
+/* Icons (User, Cart, Account) */
 .nav2 h4 {
-    font-size: 16px;
-
+    font-size: 22px;
+    /* आइकन्स का साइज़ बढ़ाया */
+    margin: 0;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s ease, transform 0.2s;
 }
 
+.nav2 h4:hover {
+    color: #7b58a0ed;
+    transform: translateY(-2px);
+    /* हल्का लिफ्ट इफेक्ट */
+}
+
+/* Mobile Menu Icon (Burger) */
 .nav2 h5 {
-    font-size: 20px;
+    font-size: 24px;
+    color: #333;
     display: none;
+    /* Desktop पर छिपा हुआ */
+    cursor: pointer;
 }
 
-@media (max-width:768px) {
+
+/* ======================================= */
+/* 📱 MEDIA QUERIES: Improved Mobile View */
+/* ======================================= */
+
+@media (max-width: 992px) {
     nav {
-        padding: 10px 20px;
+        padding: 0 3%;
+        /* छोटी स्क्रीन के लिए कम पैडिंग */
+    }
+
+    .nav2 {
+        gap: 20px;
+    }
+
+    .nav2 a {
+        font-size: 14px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        height: 60px;
+        padding: 0 20px;
+    }
+
+    .nav1 img {
+        height: 100px;
+        /* मोबाइल पर लोगो को छोटा किया */
+    }
+
+    .nav2 a {
+        display: none;
+        /* Links को पूरी तरह से छिपा दिया */
+    }
+
+    .nav2 h4 {
+        font-size: 18px;
+        /* आइकन्स का साइज़ एडजस्ट किया */
+    }
+
+    .nav2 h5 {
+        display: block;
+        /* Hamburger Icon दिखाएं */
     }
 
     .nav2 {
         gap: 15px;
     }
-
-    .nav2 a {
-        display: none;
-    }
-
-    .nav2 h5 {
-        display: block;
-    }
-
-    .nav1 img {
-        height: 190px;
-        padding-top: 10px;
-    }
-
-    .nav2 h4 {
-        font-size: 14px;
-        gap: 10px;
-    }
-
-    .nav2 h5 {
-        font-size: 15px;
-    }
-
-
 
 }
 
@@ -130,28 +214,51 @@ nav {
     /* background-color: red; */
 }
 
+ .phone {
+    display: none;
+ }
+
 @media (max-width:768px) {
     .cloth-container {
         grid-template-columns: 1fr 1fr;
 
-
-
+        
+        
         padding: 0px;
-        column-gap: 7px;
+        column-gap: 9px;
         row-gap: inherit;
 
 
     }
 
-    .box {
+     .box {
         margin-top: 15px;
         width: 200px;
         height: 300px;
         box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    .box ::-webkit-scrollbar{
+        width: 0;
+    }
+    .box{
+        scrollbar-width: none;
     }
 
+    .men-collection-head h2{
+        font-size: 28px;
+        text-decoration: underline;
+        
+    }
+    .phone {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 5px;
+    }
 
-
+   
 }
 
 
@@ -181,7 +288,7 @@ article {
     margin-top: -1px;
     transition: box-shadow 0.3s;
     width: 250px;
-    height: auto;
+    height: 300px;
     border-radius: 10px;
     object-fit: cover;
 }
@@ -261,9 +368,8 @@ span.discount {
 
 .btn-cart,
 .btn-buy {
-    padding: 10px 15px;
-    border: none;
-    font-size: 14px;
+    font-size: 10px;
+    padding: 13px 15px;
     font-weight: 600;
     cursor: pointer;
     border-radius: 4px;
@@ -271,21 +377,40 @@ span.discount {
 }
 
 .btn-cart {
-    background-color: #2868a79d;
-    color: #000;
+    
+    background-color: #ffffffed;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 25px 3px rgba(0, 0, 0, 0.096);
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.25s , background-color 0.3s, color 0.3s;
 }
 
 .btn-cart:hover {
-    background-color: #1f4d73;
+   
+    background-color: #1E2939;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.05);
 }
 
 .btn-buy {
-    background-color: #2868a7;
-    color: #fff;
+    background-color: #1E2939;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 25px 3px rgba(0, 0, 0, 0.096);
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.25s , background-color 0.3s, color 0.3s;
 }
 
 .btn-buy:hover {
-    background-color: #1f4d73;
+    
+    background-color: #1e2939e8;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.05);
 }
 
 .men-collection-head {
@@ -297,6 +422,7 @@ span.discount {
 }
 .men-collection-head h2 {
     margin: 0;
+    text-decoration: underline;
 }
 
 

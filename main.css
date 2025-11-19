@@ -44,28 +44,29 @@ body {
     margin: 20px 0;
 }
 
-/* ======================================= */
-/* 🚀 NAV BAR: Enhanced Styling */
-/* ======================================= */
+
+/*  NAV BAR */
+
 
 nav {
     height: 70px;
-    /* ऊँचाई थोड़ी कम की */
+    
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    /* पैडिंग प्रतिशत में सेट की */
+    
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    /* बेहतर शैडो इफेक्ट */
+    
     position: sticky;
-    /* Fixed के बजाय Sticky का इस्तेमाल ताकि स्क्रॉल करने पर ऊपर रहे */
+    
     top: 0;
     z-index: 1000;
-    /* Z-Index बढ़ाया */
-
+    
+    
+    
 }
 
 /* Logo Styling */
@@ -165,7 +166,7 @@ nav {
         padding: 0 3%;
         /* छोटी स्क्रीन के लिए कम पैडिंग */
     }
-
+    
     .nav2 {
         gap: 20px;
     }
@@ -181,7 +182,7 @@ nav {
         height: 60px;
         padding: 0 20px;
     }
-
+    
     .nav1 img {
         height: 100px;
         /* मोबाइल पर लोगो को छोटा किया */
@@ -196,17 +197,64 @@ nav {
         font-size: 18px;
         /* आइकन्स का साइज़ एडजस्ट किया */
     }
-
+    
     .nav2 h5 {
         display: block;
         /* Hamburger Icon दिखाएं */
     }
-
+    
     .nav2 {
         gap: 15px;
     }
 
 }
+
+
+/* ======================================= */
+/* 🍔 MOBILE MENU CSS (main.css) */
+/* ======================================= */
+
+.mobile-menu {
+    position: fixed;
+    top: 70px; /* Nav bar की ऊँचाई के नीचे शुरू करें */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98); /* हल्का पारदर्शी सफेद बैकग्राउंड */
+    z-index: 999; /* Nav bar (1000) से थोड़ा कम */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transform: translateX(-100%); /* मेन्यू को स्क्रीन से बाहर छिपाएँ */
+    transition: transform 0.4s ease-in-out; /* स्मूद एनिमेशन */
+}
+
+.mobile-menu.active {
+    transform: translateX(0); /* जब active क्लास हो तो मेन्यू दिखाएँ */
+    overflow-y: auto; /* अगर सामग्री लंबी हो तो स्क्रॉल करने की अनुमति दें */
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5em; /* लिंक्स का साइज़ बढ़ाएँ */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+}
+
+.mobile-menu a:hover {
+    color: #7b58a0ed;
+}
+
+/* 768px से ऊपर के लिए, मेन्यू को हमेशा छिपाना सुनिश्चित करें */
+@media (min-width: 769px) {
+    .mobile-menu {
+        display: none;
+    }
+}
+
+
 
 section.active {
     opacity: 1;
@@ -216,37 +264,37 @@ section.active {
 #about span {
     font-size: 50px;
     font-weight: bolder;
-
+    
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-
+    
 }
 
 @media (max-width:768px) {
     #about span {
         font-size: 25px;
         font-weight: 700;
-
+        
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 10px;
-
+        
     }
 }
 
 #contact span {
     font-size: 50px;
     font-weight: 700;
-
+    
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 10px;
-
+    
 }
 
 @media (max-width:768px) {
@@ -258,21 +306,22 @@ section.active {
         justify-content: center;
         align-items: center;
         margin-top: 10px;
-
+        
     }
 }
 
 #product-item {
     font-size: 50px;
     font-weight: 700;
-
+    text-decoration: underline;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
     margin-bottom: 20px;
-
+    
 }
+
 
 /* main -banner */
 main {
@@ -314,7 +363,7 @@ main {
 .banner-video {
     width: 100%;
     height: auto;
-    margin-top: 50px;
+    margin-top: 10px;
     pointer-events: none;
     display: block;
     /* position: relative; */
@@ -370,7 +419,7 @@ main {
 @media (max-width:768px) {
     .banner video {
         width: 100%;
-        margin-top: 80px;
+        margin-top: 5px;
 
     }
 
@@ -480,42 +529,9 @@ main {
 
 
 @media (max-width:768px) {
-    .sec2-text-text h2 {
-        font-size: 15px;
-
-    }
-
-    .sec2-text {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-end;
-        gap: 30px;
-        /* background-color: rgb(0, 153, 255); */
-        font-size: 12px;
-        margin-top: 10px;
-        margin-bottom: 5px;
-        margin-left: 15px;
-        padding-top: 15px;
-    }
-    .sec2-text-btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        width: 100%;
-        gap: 10px;
-    }
-    .sec2-text-text p {
-        font-size: 10px;
-    }
-    .btn2 {
-        padding: 8px 12px;
-        font-size: 0.8em;
-    }
-    #learnmore {
-        padding: 8px 12px;
-        font-size: 0.8em;
-    }
+   .sec2-text{
+    display: none;
+   }
     
 }
 
@@ -568,8 +584,8 @@ main {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.308);
 
 }
-
-
+ 
+  
 .products-sections {
     min-height: 100vh;
 
@@ -609,12 +625,32 @@ main {
 
 
     }
-
+    
+   
+   #product-item{
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    
+   }
     .box {
         margin-top: 15px;
         width: 200px;
         height: 300px;
         box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    .box ::-webkit-scrollbar{
+        width: 0;
+    }
+    .box{
+        scrollbar-width: none;
     }
 
 

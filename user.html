@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA CLOTHING - User Profile</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        /* User Profile CSS */
+        .profile-container {
+            max-width: 1000px;
+            margin: 100px auto 50px;
+            /* Nav bar के नीचे स्पेस */
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar h3 {
+            border-bottom: 2px solid #7b58a0ed;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 4px;
+        }
+
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            color: #7b58a0ed;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-header i {
+            font-size: 40px;
+            margin-right: 20px;
+            color: #7b58a0ed;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .detail-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        .detail-box h4 {
+            color: #7b58a0ed;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .detail-box p {
+            margin: 5px 0;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                margin-top: 70px;
+            }
+
+            .sidebar {
+                width: 100%;
+                order: 2;
+                /* मोबाइल पर साइडबार को नीचे भेजें */
+            }
+
+            .main-content {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav1">
+            <img src="logo.png" alt="ALPHA CLOTHING Logo" class="logo">
+        </div>
+        <div class="nav2">
+            <a href="index.html#home">HOME</a>
+            <a href="index.html#products">PRODUCTS</a>
+            <a href="index.html#about">ABOUT US</a>
+            <a href="index.html#contact">CONTACT US</a>
+            <h4 onclick="window.location.href='user-profile.html'" style="cursor: pointer;"><i class="ri-user-line"></i>
+            </h4>
+            <h4><i class="ri-account-circle-line"></i></h4>
+            <h4 onclick="window.location.href='cart.html'" style="cursor: pointer;"><i
+                    class="ri-shopping-cart-2-fill"></i></h4>
+            <h5><i class="ri-menu-3-line"></i></h5>
+        </div>
+    </nav>
+    <div class="profile-container">
+
+        <div class="sidebar">
+            <h3>Account Navigation</h3>
+            <ul>
+                <li><a href="#" class="active"><i class="ri-user-3-line"></i> My Profile</a></li>
+                <li><a href="#"><i class="ri-history-line"></i> Order History</a></li>
+                <li><a href="#"><i class="ri-map-pin-line"></i> Saved Addresses</a></li>
+                <li><a href="#"><i class="ri-settings-4-line"></i> Account Settings</a></li>
+                <li><a href="#" style="color: red;"><i class="ri-logout-box-line"></i> Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-header">
+                <i class="ri-user-3-line"></i>
+                <h2>Welcome Back, Alpha User!</h2>
+            </div>
+
+            <div class="detail-box">
+                <h4>Personal Information</h4>
+                <p><strong>Name:</strong> Alpha Man</p>
+                <p><strong>Email:</strong> alphaclothing@example.com</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <button class="btn-edit"
+                    style="background-color: #7b58a0ed; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer;">Edit
+                    Profile</button>
+            </div>
+
+            <div class="detail-box">
+                <h4>Recent Orders</h4>
+                <div class="order-item">
+                    <span><strong>Order ID:</strong> #ALPHA123456</span>
+                    <span>**Date:** 18 Nov 2025</span>
+                    <span>**Total:** ₹999.00</span>
+                    <span><span style="color: green; font-weight: bold;">Delivered</span> | <a href="#"
+                            style="color: #7b58a0ed;">View Details</a></span>
+                </div>
+                <div class="order-item">
+                    <span><strong>Order ID:</strong> #ALPHA123455</span>
+                    <span>**Date:** 01 Nov 2025</span>
+                    <span>**Total:** ₹1998.00</span>
+                    <span><span style="color: orange; font-weight: bold;">Shipped</span> | <a href="#"
+                            style="color: #7b58a0ed;">Track Order</a></span>
+                </div>
+                <p style="margin-top: 15px; text-align: right;"><a href="#" style="color: #7b58a0ed;">View All
+                        Orders</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <section id="contact">
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

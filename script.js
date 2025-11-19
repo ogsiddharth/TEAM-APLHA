@@ -148,3 +148,40 @@ function placeOrder() {
         alert('Your cart is empty. Please add items to place an order.');
     }
 }
+
+
+
+// =======================================
+// 🍔 MOBILE MENU TOGGLE LOGIC (script.js)
+// =======================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // अन्य सारा DOMContentLoaded लॉजिक यहाँ जारी रहेगा...
+    
+    const hamburgerIcon = document.querySelector('.nav2 h5'); // आपका हैमबर्गर आइकन
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navLinks = mobileMenu.querySelectorAll('a');
+
+    if (hamburgerIcon && mobileMenu) {
+        // 1. Hamburger आइकन पर क्लिक करने पर मेन्यू को खोलें/बंद करें
+        hamburgerIcon.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // 2. जब यूज़र मेन्यू में किसी लिंक पर क्लिक करे, तो मेन्यू को बंद कर दें
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // 3. (Optional) जब विंडो का साइज़ बड़ा हो जाए, तो मेन्यू को हटा दें
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+
+    //... बाकी का cart.js लॉजिक यहाँ जारी रहेगा।
+});
