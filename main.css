@@ -313,7 +313,7 @@ section.active {
 #product-item {
     font-size: 50px;
     font-weight: 700;
-    text-decoration: underline;
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1050,3 +1050,4 @@ span.discount {
         padding: 15px 0px;
     }
 }
+
