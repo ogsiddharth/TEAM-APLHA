@@ -39,27 +39,28 @@ body {
 
 
 
-/* 🚀 NAV BAR: Enhanced Styling */
-/* ======================================= */
+/*  NAV BAR */
+
 
 nav {
     height: 70px;
-    /* ऊँचाई थोड़ी कम की */
+    
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    /* पैडिंग प्रतिशत में सेट की */
+    
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    /* बेहतर शैडो इफेक्ट */
+    
     position: sticky;
-    /* Fixed के बजाय Sticky का इस्तेमाल ताकि स्क्रॉल करने पर ऊपर रहे */
+    
     top: 0;
     z-index: 1000;
-    /* Z-Index बढ़ाया */
-
+    
+    
+    
 }
 
 /* Logo Styling */
@@ -159,7 +160,7 @@ nav {
         padding: 0 3%;
         /* छोटी स्क्रीन के लिए कम पैडिंग */
     }
-
+    
     .nav2 {
         gap: 20px;
     }
@@ -175,9 +176,9 @@ nav {
         height: 60px;
         padding: 0 20px;
     }
-
+    
     .nav1 img {
-        height: 100px;
+        height: 170px;
         /* मोबाइल पर लोगो को छोटा किया */
     }
 
@@ -190,17 +191,64 @@ nav {
         font-size: 18px;
         /* आइकन्स का साइज़ एडजस्ट किया */
     }
-
+    
     .nav2 h5 {
         display: block;
         /* Hamburger Icon दिखाएं */
     }
-
+    
     .nav2 {
         gap: 15px;
     }
 
 }
+
+
+/* ======================================= */
+/* 🍔 MOBILE MENU CSS (main.css) */
+/* ======================================= */
+
+.mobile-menu {
+    position: fixed;
+    top: 70px; /* Nav bar की ऊँचाई के नीचे शुरू करें */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98); /* हल्का पारदर्शी सफेद बैकग्राउंड */
+    z-index: 999; /* Nav bar (1000) से थोड़ा कम */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transform: translateX(-100%); /* मेन्यू को स्क्रीन से बाहर छिपाएँ */
+    transition: transform 0.4s ease-in-out; /* स्मूद एनिमेशन */
+}
+
+.mobile-menu.active {
+    transform: translateX(0); /* जब active क्लास हो तो मेन्यू दिखाएँ */
+    overflow-y: auto; /* अगर सामग्री लंबी हो तो स्क्रॉल करने की अनुमति दें */
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5em; /* लिंक्स का साइज़ बढ़ाएँ */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+}
+
+.mobile-menu a:hover {
+    color: #7b58a0ed;
+}
+
+/* 768px से ऊपर के लिए, मेन्यू को हमेशा छिपाना सुनिश्चित करें */
+@media (min-width: 769px) {
+    .mobile-menu {
+        display: none;
+    }
+}
+
+
 
 /* cloth section */
 .cloth-container {
@@ -236,15 +284,9 @@ nav {
         width: 200px;
         height: 300px;
         box-sizing: border-box;
-        overflow-x: hidden;
-        overflow-y: scroll;
+       overflow: hidden;
     }
-    .box ::-webkit-scrollbar{
-        width: 0;
-    }
-    .box{
-        scrollbar-width: none;
-    }
+    
 
     .men-collection-head h2{
         font-size: 28px;
