@@ -38,84 +38,213 @@ body {
 
 
 
-/* nav css */
+/*  NAV BAR */
+
+
 nav {
-    height: 80px;
+    height: 70px;
+    
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 90px;
+    padding: 0 5%;
+    
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    
+    position: sticky;
+    
+    top: 0;
+    z-index: 1000;
+    
+    
+    
 }
 
+/* Logo Styling */
 .nav1 img {
-    height: 400px;
-    padding-top: 29px;
-
+    height: 250px;
+    /* Logo की ऊँचाई एडजस्ट की */
+    width: auto;
+    padding: 0;
+    /* अनावश्यक पैडिंग हटाई */
+    margin-top: 25px;
+    transition: transform 0.3s ease-in-out;
 }
 
+.nav1 img:hover {
+    transform: scale(1.05);
+    /* Logo पर हल्का होवर इफेक्ट */
+}
+
+/* Nav Links Container */
 .nav2 {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 35px;
+    /* लिंक्स के बीच की दूरी बढ़ाई */
 }
 
+/* Nav Anchor Links (HOME, PRODUCTS, etc.) */
 .nav2 a {
     text-decoration: none;
-    color: #636262;
-    font-weight: bold;
-    font-size: 14px;
-    transition: color 0.3s;
+    color: #333333;
+    /* गहरा, स्पष्ट रंग */
+    font-weight: 500;
+    /* Semi-bold */
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline Hover Effect for Links */
+.nav2 a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    left: 0;
+    background: #7b58a0ed;
+    /* आपके चुने हुए रंग का इस्तेमाल */
+    transition: width 0.3s ease;
 }
 
 .nav2 a:hover {
-    color: #000;
+    color: #7b58a0ed;
 }
 
+.nav2 a:hover::after {
+    width: 100%;
+    /* होवर पर पूरी अंडरलाइन */
+}
+
+
+/* Icons (User, Cart, Account) */
 .nav2 h4 {
-    font-size: 16px;
-
+    font-size: 22px;
+    /* आइकन्स का साइज़ बढ़ाया */
+    margin: 0;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s ease, transform 0.2s;
 }
 
+.nav2 h4:hover {
+    color: #7b58a0ed;
+    transform: translateY(-2px);
+    /* हल्का लिफ्ट इफेक्ट */
+}
+
+/* Mobile Menu Icon (Burger) */
 .nav2 h5 {
-    font-size: 20px;
+    font-size: 24px;
+    color: #333;
     display: none;
+    /* Desktop पर छिपा हुआ */
+    cursor: pointer;
 }
 
-@media (max-width:768px) {
+
+/* ======================================= */
+/* 📱 MEDIA QUERIES: Improved Mobile View */
+/* ======================================= */
+
+@media (max-width: 992px) {
     nav {
-        padding: 10px 20px;
+        padding: 0 3%;
+        /* छोटी स्क्रीन के लिए कम पैडिंग */
+    }
+    
+    .nav2 {
+        gap: 20px;
     }
 
-    .nav2 {
+    .nav2 a {
+        font-size: 14px;
         gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        height: 60px;
+        padding: 0 20px;
+    }
+    
+    .nav1 img {
+        height: 170px;
+        /* मोबाइल पर लोगो को छोटा किया */
     }
 
     .nav2 a {
         display: none;
-    }
-
-    .nav2 h5 {
-        display: block;
-    }
-
-    .nav1 img {
-        height: 190px;
-        padding-top: 10px;
+        /* Links को पूरी तरह से छिपा दिया */
     }
 
     .nav2 h4 {
-        font-size: 14px;
-        gap: 10px;
+        font-size: 18px;
+        /* आइकन्स का साइज़ एडजस्ट किया */
     }
-
+    
     .nav2 h5 {
-        font-size: 15px;
+        display: block;
+        /* Hamburger Icon दिखाएं */
+    }
+    
+    .nav2 {
+        gap: 15px;
     }
 
+}
 
 
+/* ======================================= */
+/* 🍔 MOBILE MENU CSS (main.css) */
+/* ======================================= */
+
+.mobile-menu {
+    position: fixed;
+    top: 70px; /* Nav bar की ऊँचाई के नीचे शुरू करें */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98); /* हल्का पारदर्शी सफेद बैकग्राउंड */
+    z-index: 999; /* Nav bar (1000) से थोड़ा कम */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transform: translateX(-100%); /* मेन्यू को स्क्रीन से बाहर छिपाएँ */
+    transition: transform 0.4s ease-in-out; /* स्मूद एनिमेशन */
+}
+
+.mobile-menu.active {
+    transform: translateX(0); /* जब active क्लास हो तो मेन्यू दिखाएँ */
+    overflow-y: auto; /* अगर सामग्री लंबी हो तो स्क्रॉल करने की अनुमति दें */
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5em; /* लिंक्स का साइज़ बढ़ाएँ */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+}
+
+.mobile-menu a:hover {
+    color: #7b58a0ed;
+}
+
+/* 768px से ऊपर के लिए, मेन्यू को हमेशा छिपाना सुनिश्चित करें */
+@media (min-width: 769px) {
+    .mobile-menu {
+        display: none;
+    }
 }
 
 
@@ -246,6 +375,10 @@ nav {
     transition: background-color 0.3s;
     display: none;
 }
+
+#cart1:hover{
+    background-color: #1e2939e8;
+}
 .buy-now-button1{
     display: none;
     padding: 10px;
@@ -258,6 +391,11 @@ nav {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+    .buy-now-button1:hover{
+        background-color: #1E2939;
+        color: #ffffff;
+    }
 
  .delivery {
  
@@ -350,96 +488,156 @@ nav {
 
 .color-cloth {
     display: flex;
-    
-    /* justify-content: flex-start; */
-    gap: 15px;
-    margin: 10px 20px;
+    justify-content: space-between; /* बटनों और विवरण के बीच स्पेसिंग दें */
+    align-items: flex-start; /* शीर्ष पर तत्वों को संरेखित करें */
+    gap: 30px; /* गैप बढ़ाया */
+    margin: 20px auto;
+    max-width: 1200px; /* मुख्य कंटेनर के अनुरूप चौड़ाई सेट करें */
+    padding: 0 20px;
 }
-/* .colors h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-right: 10px;
-    display: block;
-} */
+
 .colors {
     display: flex;
-    gap: 10px;
-    width: 50%;
-    justify-content: center;
-    padding-left: 100px;
-    
-   
+    flex-direction: column; /* बटन और कलर ऑप्शन को ऊपर-नीचे रखें */
+    gap: 15px;
+    width: 40%; /* डेस्कटॉप पर, बटन सेक्शन को चौड़ाई दें */
+    justify-content: flex-start; 
+    padding-left: 0; /* अनावश्यक पैडिंग हटाई */
+}
 
+/* Buy Now Button Style */
+.buy-now-button, #cart {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* पूरी चौड़ाई लें */
 }
-.color-option1{
+
+.buy-now-button {
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+}
+
+.buy-now-button:hover {
+    background-color: #555;
+}
+
+/* Add To Cart Button Style */
+#cart {
+    background-color: #7b58a0ed; /* आपके ब्रांड का रंग */
+    color: white;
+    text-decoration: none;
+}
+
+#cart:hover {
+    background-color: #6a4c9b;
+}
+
+/* Color Options (जो HTML में कमेंट आउट हैं, पर स्टाइलिंग यहाँ है) */
+.color-options-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-option1, .color-option2 {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
     border: 2px solid #ccc;
-    
-   background-color: #2693dc;
+    transition: border-color 0.3s;
 }
-.color-option2{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid #ccc;
-   
+
+.color-option1 {
+    background-color: #2693dc;
+}
+
+.color-option2 {
     background-color: #391717;
 }
-/* .color-cloth div:hover {
-    border: 2px solid #000;
-} */
 
-
-.about-product {
+/* About Product Section Styles (आपके पिछले कोड से) */
+.about-product1 {
     display: block;
     margin: 5px auto;
-    width: 50%;    
-}  
-.about-product h2 {
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom: 15px;
+    width: 55%; /* इसे 55% दें ताकि यह colors सेक्शन के साथ fit हो सके */
+    padding: 20px;
+    border-left: 1px solid #eee; /* दोनों सेक्शन को अलग करने के लिए एक हल्की रेखा */
 }
 
-.about-product ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    color: #333333;
-    font-size: 20px;
-}
-.about-product ul li {
-    margin-bottom: 10px;
-}
-.about-product1 {
-    display: none;
-    margin: 5px auto;
-    width: 50%;    
-}  
 .about-product1 h2 {
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 15px;
+    color: #333;
 }
 
 .about-product1 ul {
     list-style-type: disc;
     margin-left: 20px;
-    color: #333333;
+    color: #555555;
     font-size: 20px;
 }
 .about-product1 ul li {
     margin-bottom: 10px;
 }
-/* .about-product img {
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 20px;
-} */
 
+
+/* ======================================= */
+/* 📱 MOBILE STYLES (Max-width: 768px) */
+/* ======================================= */
+@media (max-width: 768px) {
+    
+    /* 1. कंटेनर को वर्टिकल स्टैक करें */
+    .color-cloth {
+        flex-direction: column; /* बटनों और विवरण को ऊपर-नीचे लाएं */
+        gap: 0;
+        margin: 10px auto;
+        padding: 0 10px;
+    }
+
+    /* 2. बटन/कलर सेक्शन (अब सबसे ऊपर) */
+    .colors {
+        width: 100%; /* पूरी चौड़ाई लें */
+        flex-direction: row; /* बटन को बगल-बगल रखें */
+        gap: 10px;
+        padding: 10px;
+        box-sizing: border-box; /* पैडिंग को चौड़ाई में शामिल करें */
+    }
+    
+    .buy-now-button, #cart {
+        width: 50%; /* दोनों बटन को 50% चौड़ाई दें */
+        padding: 12px 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* 3. प्रोडक्ट विवरण सेक्शन (अब नीचे) */
+    .about-product1 {
+        width: 100%; /* पूरी चौड़ाई लें */
+        margin: 20px auto 10px;
+        padding: 10px;
+        border-left: none; /* मोबाइल पर विभाजक रेखा हटा दें */
+        border-top: 1px solid #eee; /* इसके बजाय ऊपर एक हल्की रेखा दें */
+    }
+
+    .about-product1 h2 {
+        font-size: 24px; 
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .about-product1 ul {
+        margin-left: 30px;
+        font-size: 16px;
+    }
+}
 
 
 
