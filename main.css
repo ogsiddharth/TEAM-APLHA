@@ -184,7 +184,7 @@ nav {
     }
     
     .nav1 img {
-        height: 100px;
+        height: 170px;
         /* मोबाइल पर लोगो को छोटा किया */
     }
 
@@ -313,7 +313,7 @@ section.active {
 #product-item {
     font-size: 50px;
     font-weight: 700;
-    
+    text-decoration: underline;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -630,7 +630,7 @@ main {
    #product-item{
     font-size: 30px;
     font-weight: 700;
-    
+    text-decoration: underline;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -643,16 +643,10 @@ main {
         width: 200px;
         height: 300px;
         box-sizing: border-box;
-        overflow-x: hidden;
-        overflow-y: scroll;
+        
+        overflow: hidden;
     }
-    .box ::-webkit-scrollbar{
-        width: 0;
-    }
-    .box{
-        scrollbar-width: none;
-    }
-
+  
 
 
 }
@@ -823,7 +817,7 @@ span.discount {
         padding: 5px 7px;
         color: black;
         border: none;
-        font-size: 5px;
+        font-size: 8px;
         font-weight: 600;
         cursor: pointer;
         border-radius: 4px;
@@ -1050,5 +1044,3 @@ span.discount {
         padding: 15px 0px;
     }
 }
-
-
