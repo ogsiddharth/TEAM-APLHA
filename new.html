@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Page</title>
-<link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
-<link rel="stylesheet" href="new.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="new.css">
 </head>
 <body>
-  <div class="login-box">
-      <img src="form2.png" alt="" >
-      
-      <h2>Log In To Your Account</h2>
-    
-      <input type="text" placeholder="Email Address" required>
-      <input type="password" placeholder="Password" required>
-     <div class="remember">
-       <label for="remember"><input type="checkbox" id="remember" >Remember </label>
+    <div class="login-box">
+        <img src="form2.png" alt="Login Image" >
         
-        <a href="#"> Me Forget Password?</a>
+        <h2>Log In To Your Account</h2>
         
-      </div>
-      <a href="index.html"><button type="submit">Login</button></a> 
-      <div class="contact">
-        <i class="ri-google-fill"></i>
-        <i class="ri-facebook-fill"></i>
-        <i class="ri-twitter-fill"></i>
-        <i class="ri-instagram-fill"></i>
-        <p>Don't have Account? <a href="#">Sign-Up</a></p>
-      </div>
+        <form id="loginForm"> 
+            <input type="text" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Password" required>
+            
+            <div class="remember">
+                <label for="remember"><input type="checkbox" id="remember" >Remember </label>
+                <a href="#"> Forget Password?</a>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+        
+        <div class="contact">
+            <i class="ri-google-fill"></i>
+            <i class="ri-facebook-fill"></i>
+            <i class="ri-twitter-fill"></i>
+            <i class="ri-instagram-fill"></i>
+            <p>Don't have Account? <a href="#">Sign-Up</a></p>
+        </div>
+        
+    </div>
     
-  </div>
+    <script src="script.js"></script> 
+    <script>
+        // यह फ़ंक्शन आपके पिछले रिस्पॉन्स से है
+        function setLoggedInStatus() {
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'index.html'; 
+        }
+
+        // फॉर्म सबमिट हैंडलर
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // डिफ़ॉल्ट फॉर्म सबमिशन को रोकें (पेज रीलोड)
+            
+            checkCredentialsAndLogin();
+        });
+
+        function checkCredentialsAndLogin() {
+            // (यहाँ आप वास्तव में ईमेल और पासवर्ड की जाँच करेंगे)
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // **वर्तमान में, हम सिर्फ़ एक डमी चेक कर रहे हैं:**
+            if (email.length > 0 && password.length > 0) { 
+                 // अगर डेटा है, तो लॉग इन सफल मानें
+                setLoggedInStatus(); 
+            } else {
+                alert("Please enter both email and password.");
+            }
+        }
+    </script>
 </body>
 </html>
-<!-- <nav>
-        <div class="nav1">
-            <img src="logo.png" alt="ALPHA CLOTHING Logo" class="logo">
-        </div>
-        <div class="nav2">
-            <a href="#home">NEW ARRIVALS</a>
-            <a href="#products">MEN'S</a>
-            <a href="#about">WOMEN</a>
-            <a href="#contact">ACCESSORIES</a>
-            <h4><i class="ri-user-line"></i></h4>
-            <h4><i class="ri-account-circle-line"></i></h4>
-            <h4><i class="ri-shopping-cart-2-fill"></i></h4>
-            <h5><i class="ri-menu-3-line"></i></h5>
-            
-        </div>
-    </nav> -->
