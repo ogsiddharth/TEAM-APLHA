@@ -313,7 +313,7 @@ section.active {
 #product-item {
     font-size: 50px;
     font-weight: 700;
-    text-decoration: none;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -630,7 +630,7 @@ main {
    #product-item{
     font-size: 30px;
     font-weight: 700;
-    text-decoration: none;
+    
     display: flex;
     justify-content: center;
     align-items: center;
