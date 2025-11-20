@@ -131,33 +131,48 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav1">
-            <img src="logo.png" alt="ALPHA CLOTHING Logo" class="logo">
-        </div>
-        <div class="nav2">
-            <a href="index.html#home">HOME</a>
-            <a href="index.html#products">PRODUCTS</a>
-            <a href="index.html#about">ABOUT US</a>
-            <a href="index.html#contact">CONTACT US</a>
-            <h4 onclick="window.location.href='user-profile.html'" style="cursor: pointer;"><i class="ri-user-line"></i>
-            </h4>
-            <h4><i class="ri-account-circle-line"></i></h4>
-            <h4 onclick="window.location.href='cart.html'" style="cursor: pointer;"><i
-                    class="ri-shopping-cart-2-fill"></i></h4>
-            <h5><i class="ri-menu-3-line"></i></h5>
-        </div>
-    </nav>
+     <!-- NAV BAR -->
+  <nav>
+    <div class="nav1">
+      <img src="logo.png" alt="ALPHA CLOTHING Logo" class="logo">
+    </div>
+    <div class="nav2">
+      <a href="index.html">HOME</a>
+      <a href="#products">PRODUCTS</a>
+      <a href="#about">ABOUT US</a>
+      <a href="#contact">CONTACT US</a>
+      <a href="new.html">
+        <h4><i class="ri-user-line"></i></h4>
+      </a>
+      <a href="user.html">
+        <h4><i class="ri-account-circle-line"></i></h4>
+      </a>
+      <h4 onclick="window.location.href='cart.html'" style="cursor: pointer;"><i class="ri-shopping-cart-2-fill"></i>
+      </h4>
+      <h5><i class="ri-menu-3-line"></i></h5>
+
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">HOME</a>
+    <a href="#products">PRODUCTS</a>
+    <a href="#about">ABOUT US</a>
+    <a href="#contact">CONTACT US</a>
+    <a href="user.html"><i class="ri-user-line"></i> MY ACCOUNT</a>
+    <a href="cart.html"><i class="ri-shopping-cart-2-fill"></i> MY CART</a>
+  </div>
+
     <div class="profile-container">
 
         <div class="sidebar">
             <h3>Account Navigation</h3>
             <ul>
                 <li><a href="#" class="active"><i class="ri-user-3-line"></i> My Profile</a></li>
-                <li><a href="#"><i class="ri-history-line"></i> Order History</a></li>
+                <li><a href="cart.html"><i class="ri-history-line"></i> Order History</a></li>
                 <li><a href="#"><i class="ri-map-pin-line"></i> Saved Addresses</a></li>
                 <li><a href="#"><i class="ri-settings-4-line"></i> Account Settings</a></li>
-                <li><a href="#" style="color: red;"><i class="ri-logout-box-line"></i> Logout</a></li>
+                <li><a href="index.html" style="color: red;"><i class="ri-logout-box-line"></i> Logout</a></li>
             </ul>
         </div>
 
